@@ -34,6 +34,11 @@ call ddu#custom#patch_global('sourceOptions', {
       \ 'file_fd': {'path': expand("~")},
       \ })
 
+" Chagnes default arguments to `fd`
+call ddu#custom#patch_global('sourceParams', {
+      \ 'file_fd': {'args': ["--max-depth", "5", "--hidden"]},
+      \ })
+
 " For use in the filer UI.
 " call ddu#custom#patch_global({'ui': 'filer'})
 
@@ -44,7 +49,16 @@ call ddu#start({'sources': [{'name': 'file_fd'}]})
 ==============================================================================
 PARAMS					*ddu-source-file_fd-params*
 
-					  *ddu-source-file_fd-param-path*
+					  *ddu-source-file_fd-param-args*
+args	(string)
+		list of args to pass to `fd`
+
+		Default: ["--max-depth", "1", "--hidden"]
+
+==============================================================================
+OPTIONS					*ddu-source-file_fd-options*
+
+					  *ddu-source-file_fd-options-path*
 path	(string)
 		Path to execute commands.
 		If it is empty, |getcwd()| is used.
