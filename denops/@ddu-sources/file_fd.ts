@@ -1,9 +1,9 @@
-import { BaseSource, Item, SourceOptions } from "https://deno.land/x/ddu_vim@v1.8.7/types.ts";
-import { Denops, fn } from "https://deno.land/x/ddu_vim@v1.8.7/deps.ts";
-import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.0/file.ts";
-import { relative } from "https://deno.land/std@0.147.0/path/mod.ts";
-import { BufReader } from "https://deno.land/std@0.147.0/io/buffer.ts";
-import { abortable } from "https://deno.land/std@0.147.0/async/mod.ts";
+import { BaseSource, Item, SourceOptions } from "https://deno.land/x/ddu_vim@v2.0.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/ddu_vim@v2.0.0/deps.ts";
+import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.1/file.ts";
+import { relative } from "https://deno.land/std@0.165.0/path/mod.ts";
+import { BufReader } from "https://deno.land/std@0.165.0/io/buffer.ts";
+import { abortable } from "https://deno.land/std@0.165.0/async/mod.ts";
 
 type Params = {
   "new": boolean;
