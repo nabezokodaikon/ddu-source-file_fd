@@ -66,6 +66,8 @@ export class Source extends BaseSource<Params> {
                   path: fullPath,
                   isDirectory: stat.isDirectory,
                 },
+                isTree: stat.isDirectory,
+                treePath: fullPath,
               });
 
               if (items.length > maxItems) {
