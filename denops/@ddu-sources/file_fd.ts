@@ -7,6 +7,7 @@ import { abortable } from "https://deno.land/std@0.147.0/async/mod.ts";
 
 type Params = {
   "new": boolean;
+  "args": string[];
 };
 
 async function* iterLine(reader: Deno.Reader): AsyncIterable<string> {
@@ -43,7 +44,7 @@ export class Source extends BaseSource<Params> {
         const tree = async (root: string) => {
           let items: Item<ActionData>[] = [];
 
-          const cmd = ["fd", ".", `${root}`, "--max-depth", "1", "--hidden"]; 
+          const cmd = ["fd", ".", `${root}`, ...args.sourceParams.args]; 
           const proc = Deno.run({
             cmd: cmd, 
             stdout: "piped",
@@ -93,6 +94,7 @@ export class Source extends BaseSource<Params> {
   params(): Params {
     return {
       "new": false,
+      "args": ["--max-depth", "1", "--hidden"],
     };
   }
 }
